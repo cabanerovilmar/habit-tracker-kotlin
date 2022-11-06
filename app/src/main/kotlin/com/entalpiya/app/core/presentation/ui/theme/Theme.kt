@@ -1,4 +1,4 @@
-package com.entalpiya.app.ui.theme
+package com.entalpiya.app.core.presentation.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

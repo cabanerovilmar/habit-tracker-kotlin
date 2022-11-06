@@ -1,6 +1,8 @@
 plugins {
     id "com.android.application"
     id "org.jetbrains.kotlin.android"
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -61,4 +63,25 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose"
+
+    /* ViewModel */
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$viewmodelCompose"
+
+    /* Retrofit and GSON */
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.google.code.gson:gson:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+
+    /* Navigation */
+    implementation "androidx.navigation:navigation-compose:$navigationCompose"
+
+    /* Room */
+    implementation "androidx.room:room-runtime:$room"
+    kapt "androidx.room:room-compiler:$room"
+    implementation "androidx.room:room-ktx:$room"
+
+    /* Dagger Hilt */
+    implementation "com.google.dagger:hilt-android:$hiltAndroid"
+    kapt "com.google.dagger:hilt-compiler:$hiltCompiler"
+    implementation "androidx.hilt:hilt-navigation-compose:$hiltNavigationCompose"
 }
