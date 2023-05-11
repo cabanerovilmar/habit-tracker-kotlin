@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.entalpiya.app.BuildConfig
 import com.entalpiya.app.core.presentation.ui.theme.EntalpiyaTheme
 import kotlinx.coroutines.delay
 import java.util.Date
@@ -38,5 +39,5 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, mainViewModel: MainViewModel) {
     mainViewModel.setIsLoading(false)
-    Text(text = "Hello $name!")
+    Text(text = "Hello $name! The API base url is ${BuildConfig.API_BASE_URL}")
 }
