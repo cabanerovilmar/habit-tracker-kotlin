@@ -39,5 +39,5 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, mainViewModel: MainViewModel) {
     mainViewModel.setIsLoading(false)
-    Text(text = "Hello $name! The API base url is ${BuildConfig.API_BASE_URL}")
+    Text(text = "Hello $name! The API base url is ${BuildConfig.WEB_BASE_URL}")
 }
