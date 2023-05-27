@@ -1,4 +1,4 @@
-package com.entalpiya.app.core.presentation.ui.theme
+package com.entalpiya.app.common.presentation.ui.theme
 
 import android.app.Activity
 import androidx.compose.foundation.isSystemInDarkTheme

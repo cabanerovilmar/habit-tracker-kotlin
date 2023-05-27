@@ -1,4 +1,4 @@
-package com.entalpiya.app.core.presentation.ui.theme
+package com.entalpiya.app.common.presentation.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
