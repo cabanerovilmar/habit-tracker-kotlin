@@ -1,4 +1,4 @@
-package com.entalpiya.app.common.presentation
+package com.entalpiya.app.core.presentation
 
 import android.annotation.SuppressLint
 import android.content.Intent

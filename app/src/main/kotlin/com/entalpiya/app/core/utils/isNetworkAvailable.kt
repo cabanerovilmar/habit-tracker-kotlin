@@ -1,4 +1,4 @@
-package com.entalpiya.app.common.utils
+package com.entalpiya.app.core.utils
 
 import android.content.Context
 import android.net.ConnectivityManager
