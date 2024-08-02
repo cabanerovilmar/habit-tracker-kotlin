@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.entalpiya.app.BuildConfig.WEB_BASE_URL
 
 @Composable
 fun IndexScreen() {
@@ -20,7 +21,7 @@ fun IndexScreen() {
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
             Text(
-                text = "Entalpiya",
+                text = "Entalpiya $WEB_BASE_URL",
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .align(Alignment.Center)
