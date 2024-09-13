@@ -100,23 +100,16 @@ class MarkdownKatexView : WebView {
 
         // Function to render math in the document body
         val renderMathScript = """
-        <script src="$path/markdown-it.min.js"></script>
+        <script src="$path/marked.min.js"></script>
         <script>
             const content = '$escapedText';
 
-            // Initialize markdown-it with HTML escaping disabled to preserve LaTeX math
-            const md = window.markdownit();
-
-            // Function to escape LaTeX backslashes
-            const escapeBackslashes = (text) => {
-                return text.replace(/\\/g, "\\\\"); // Double the backslashes to preserve them
-            };
             function ready() {
                 try {
                     const output = document.body;
                     
                     // Render markdown and then LaTeX math expressions
-                    output.innerHTML = md.render(content);
+                    output.innerHTML = marked.parse(content);
                     
                     renderMathInElement(output, {
                         delimiters: [
