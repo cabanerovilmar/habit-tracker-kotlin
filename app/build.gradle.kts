@@ -83,6 +83,7 @@ dependencies {
 
     // Room
     implementation(libs.room.runtime)
+    // To migrate https://developer.android.com/build/migrate-to-ksp#kts
     kapt(libs.room.compiler)
     implementation(libs.room.ktx)
 
