@@ -1,0 +1,13 @@
+2024-09-13 16:34:05.981 21073-21073 Choreographer           com.entalpiya.app                    I  Skipped 82 frames!  The application may be doing too much work on its main thread.
+2024-09-13 16:34:28.806 21171-21171 Choreographer           com.entalpiya.app                    I  Skipped 70 frames!  The application may be doing too much work on its main thread.
+2024-09-13 16:34:53.468 21269-21269 Choreographer           com.entalpiya.app                    I  Skipped 79 frames!  The application may be doing too much work on its main thread.
+2024-09-13 16:35:20.348 21390-21390 Choreographer           com.entalpiya.app                    I  Skipped 87 frames!  The application may be doing too much work on its main thread.
+2024-09-13 16:35:39.115 21487-21487 Choreographer           com.entalpiya.app                    I  Skipped 70 frames!  The application may be doing too much work on its main thread.
+2024-09-13 16:36:20.421 21712-21712 Choreographer           com.entalpiya.app                    I  Skipped 83 frames!  The application may be doing too much work on its main thread.
+2024-09-13 16:37:12.585 21911-21911 Choreographer           com.entalpiya.app                    I  Skipped 73 frames!  The application may be doing too much work on its main thread.
+2024-09-13 16:37:34.002 22016-22016 Choreographer           com.entalpiya.app                    I  Skipped 70 frames!  The application may be doing too much work on its main thread.
+2024-09-13 16:37:51.692 22110-22110 Choreographer           com.entalpiya.app                    I  Skipped 66 frames!  The application may be doing too much work on its main thread.
+2024-09-13 16:38:16.607 22214-22214 Choreographer           com.entalpiya.app                    I  Skipped 75 frames!  The application may be doing too much work on its main thread.
+
+Mean: 75.5
+Median: 74.0

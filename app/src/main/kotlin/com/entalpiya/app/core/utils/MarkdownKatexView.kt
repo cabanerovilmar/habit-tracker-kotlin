@@ -64,80 +64,59 @@ class MarkdownKatexView : WebView {
         }
 
     private fun update() {
-        // Base URL for loading CSS and JS
-        val headScripts = """
-            <link rel="stylesheet" href="$path/katex/katex.min.css"/>
-            <script defer src="$path/katex/katex.min.js"></script>
-            <script defer src="$path/katex/auto-render.min.js"></script>
-            
-        """.trimIndent()
-
-        // Head styles
-        val headStyles = """
-            <style>
-                body { 
-                    margin: 0; padding: 0;
-                    color: $textColor;
-                    background: $backgroundColor;
-                    font-family: ui-sans-serif, -apple-system, system-ui, Segoe UI, Helvetica, Apple Color Emoji, Arial, sans-serif, Segoe UI Emoji, Segoe UI Symbol;
-                }
-            </style>
-        """.trimIndent()
-
-        // Body setup with text and rendering script
-        val bodyContent = """
-            <script>
-                var s = '${text.orEmpty()}';
-                document.write(s);
-            </script>
-        """.trimIndent()
-
         // Escape JavaScript and HTML special characters
         val escapedText = text.orEmpty()
             .replace("\\", "\\\\") // Escape backslashes
             .replace("'", "\\'")   // Escape single quotes
             .replace("\n", "\\n")  // Convert newlines for JavaScript
 
-        // Function to render math in the document body
-        val renderMathScript = """
-        <script src="$path/marked.min.js"></script>
-        <script>
-            const content = '$escapedText';
-
-            function ready() {
-                try {
-                    const output = document.body;
-                    
-                    // Render markdown and then LaTeX math expressions
-                    output.innerHTML = marked.parse(content);
-                    
-                    renderMathInElement(output, {
-                        delimiters: [
-                            { left: "$$", right: "$$", display: true },
-                            { left: "$", right: "$", display: false },
-                            { left: "\\[", right: "\\]", display: true },
-                            { left: "\\(", right: "\\)", display: false },
-                        ],
-                        throwOnError: false, // Prevent errors from stopping the rendering
-                    });
-                } catch (error) {
-                    console.error('Error rendering content:', error);
-                }
-            }
-        </script>
-    """.trimIndent()
-
         // Complete HTML structure
         val htmlContent = """
             <!DOCTYPE html>
             <html>
                 <head>
-                    $headScripts
-                    $headStyles
+                    <link rel="stylesheet" href="$path/katex/katex.min.css"/>
+                    <script defer src="$path/katex/katex.min.js"></script>
+                    <script defer src="$path/katex/auto-render.min.js"></script>
+                    <style>
+                        body { 
+                            margin: 0; padding: 0;
+                            color: $textColor;
+                            background: $backgroundColor;
+                            font-family: ui-sans-serif, -apple-system, system-ui, Segoe UI, Helvetica, Apple Color Emoji, Arial, sans-serif, Segoe UI Emoji, Segoe UI Symbol;
+                        }
+                    </style>
                 </head>
                 <body onload="ready()">
-                    $bodyContent
-                    $renderMathScript
+                    <script>
+                        var s = '${text.orEmpty()}';
+                        document.write(s);
+                    </script>
+                    <script src="$path/marked.min.js"></script>
+                    <script>
+                        const content = '$escapedText';
+            
+                        function ready() {
+                            try {
+                                const output = document.body;
+                                
+                                // Render markdown and then LaTeX math expressions
+                                output.innerHTML = marked.parse(content);
+                                
+                                renderMathInElement(output, {
+                                    delimiters: [
+                                        { left: "${'$'}${'$'}", right: "${'$'}${'$'}", display: true },
+                                        { left: "${'$'}", right: "${'$'}", display: false },
+                                        { left: "\\[", right: "\\]", display: true },
+                                        { left: "\\(", right: "\\)", display: false },
+                                    ],
+                                    throwOnError: false, // Prevent errors from stopping the rendering
+                                });
+                            } catch (error) {
+                                console.error('Error rendering content:', error);
+                            }
+                        }
+                    </script>
                 </body>
             </html>
         """.trimIndent()
