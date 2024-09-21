@@ -10,7 +10,7 @@ android {
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.entalpiya.app"
+        applicationId = "com.entalpiya.habit_tracker"
         minSdk = 23
         targetSdk = 33
         versionCode = 1
