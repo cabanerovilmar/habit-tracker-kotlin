@@ -11,12 +11,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
 import com.entalpiya.app.BuildConfig.WEB_BASE_URL
-import com.entalpiya.app.core.utils.MarkdownKatexView
 
 @Composable
-fun IndexScreen(jsonContent: String) {
+fun IndexScreen() {
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colors.background
@@ -29,19 +27,7 @@ fun IndexScreen(jsonContent: String) {
                     .align(Alignment.Center)
                     .padding(10.dp)
             )
-
-            WebviewSample(jsonContent)
         }
     }
 }
 
-@Composable
-fun WebviewSample(arg: String) {
-    AndroidView(factory = {
-        MarkdownKatexView(it).apply {
-            text = arg
-        }
-    }, update = {
-        it.text = arg
-    })
-}
